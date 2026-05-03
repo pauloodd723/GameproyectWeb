@@ -1,0 +1,2810 @@
+[
+   {
+        "name": "plane_lev1",
+        "x": -0.44151419401168823,
+        "y": 0.14174017310142517,
+        "z": -0.6161441802978516,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "coin_structure_detailed_lev1",
+        "x": 24.94011878967285,
+        "y": 1.3172268867492676,
+        "z": 1.9255256652832031,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-g_lev1",
+        "x": 17.397422790527344,
+        "y": 0.0,
+        "z": 12.260910987854004,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-h_lev1",
+        "x": 12.258986473083496,
+        "y": 0.0,
+        "z": 17.649293899536133,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-j_lev1",
+        "x": 34.866050720214844,
+        "y": 0.0,
+        "z": 13.160859107971191,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-k_lev1",
+        "x": 34.92420196533203,
+        "y": 0.0,
+        "z": 18.17047119140625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-l_lev1",
+        "x": 17.248544692993164,
+        "y": 0.0,
+        "z": 17.367889404296875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": -1.162284016609192,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n_lev1",
+        "x": 15.010322570800781,
+        "y": 0.0,
+        "z": 33.767250061035156,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a_lev1",
+        "x": 32.533573150634766,
+        "y": 0.0,
+        "z": 32.549068450927734,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d_lev1",
+        "x": 37.34025573730469,
+        "y": 0.0,
+        "z": 32.07607650756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-e_lev1",
+        "x": 12.672380447387695,
+        "y": 0.0,
+        "z": 12.719131469726562,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a_lev1",
+        "x": 30.57159423828125,
+        "y": 0.0,
+        "z": 16.149499893188477,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.001_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": 4.911972522735596,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.002_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": -6.799993991851807,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.003_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": -12.874250411987305,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.004_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": -36.63227462768555,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.005_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": -30.558019638061523,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.006_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": -18.846054077148438,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.007_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": -24.920310974121094,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.008_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": -48.518245697021484,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.009_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": -42.44398880004883,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.010_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": 10.922025680541992,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.011_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": 16.99628257751465,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.012_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": 28.708248138427734,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.013_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": 22.633991241455078,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.014_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": 34.61475372314453,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.015_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": 40.68900680541992,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.017_lev1",
+        "x": -51.7779541015625,
+        "y": 0.0,
+        "z": 46.326717376708984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.016_lev1",
+        "x": 48.94535827636719,
+        "y": 0.0,
+        "z": 51.31265640258789,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.018_lev1",
+        "x": 43.307762145996094,
+        "y": 0.0,
+        "z": 51.34933090209961,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.019_lev1",
+        "x": 37.233642578125,
+        "y": 0.0,
+        "z": 51.38884353637695,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.020_lev1",
+        "x": 25.25313949584961,
+        "y": 0.0,
+        "z": 51.46677780151367,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.021_lev1",
+        "x": 31.327259063720703,
+        "y": 0.0,
+        "z": 51.42726516723633,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.022_lev1",
+        "x": 19.61554718017578,
+        "y": 0.0,
+        "z": 51.50345230102539,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.023_lev1",
+        "x": 13.541419982910156,
+        "y": 0.0,
+        "z": 51.542964935302734,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.024_lev1",
+        "x": -39.82347106933594,
+        "y": 0.0,
+        "z": 51.89009475708008,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.025_lev1",
+        "x": -45.89759826660156,
+        "y": 0.0,
+        "z": 51.92961502075195,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.026_lev1",
+        "x": -22.30015754699707,
+        "y": 0.0,
+        "z": 51.7761116027832,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.027_lev1",
+        "x": -16.226037979125977,
+        "y": 0.0,
+        "z": 51.73659896850586,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.028_lev1",
+        "x": -27.937753677368164,
+        "y": 0.0,
+        "z": 51.81278610229492,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.029_lev1",
+        "x": -34.011878967285156,
+        "y": 0.0,
+        "z": 51.852298736572266,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.030_lev1",
+        "x": -10.254358291625977,
+        "y": 0.0,
+        "z": 51.697750091552734,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.031_lev1",
+        "x": -4.180231094360352,
+        "y": 0.0,
+        "z": 51.65823745727539,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.032_lev1",
+        "x": 7.531494140625,
+        "y": 0.0,
+        "z": 51.58205795288086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.033_lev1",
+        "x": 1.4573631286621094,
+        "y": 0.0,
+        "z": 51.6215705871582,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.034_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": 46.326717376708984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.035_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": 40.68900680541992,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.036_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": 34.61475372314453,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.037_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": 22.633991241455078,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.038_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": 28.708248138427734,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.039_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": 16.99628257751465,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.040_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": 10.922025680541992,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.041_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": -42.44398880004883,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.042_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": -48.518245697021484,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.043_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": -24.920310974121094,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.044_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": -18.846054077148438,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.045_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": -30.558019638061523,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.046_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": -36.63227462768555,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.047_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": -12.874250411987305,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.048_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": -6.799993991851807,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.049_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": 4.911972522735596,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.050_lev1",
+        "x": 51.18336486816406,
+        "y": 0.0,
+        "z": -1.162284016609192,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.052_lev1",
+        "x": 1.4573631286621094,
+        "y": 0.0,
+        "z": -53.0084114074707,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.053_lev1",
+        "x": 7.531494140625,
+        "y": 0.0,
+        "z": -53.04792404174805,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.054_lev1",
+        "x": -4.180231094360352,
+        "y": 0.0,
+        "z": -52.971744537353516,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.055_lev1",
+        "x": -10.254358291625977,
+        "y": 0.0,
+        "z": -52.93223190307617,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.056_lev1",
+        "x": -34.011878967285156,
+        "y": 0.0,
+        "z": -52.77768325805664,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.057_lev1",
+        "x": -27.937753677368164,
+        "y": 0.0,
+        "z": -52.817195892333984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.058_lev1",
+        "x": -16.226037979125977,
+        "y": 0.0,
+        "z": -52.89338302612305,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.059_lev1",
+        "x": -22.30015754699707,
+        "y": 0.0,
+        "z": -52.8538703918457,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.060_lev1",
+        "x": -45.89759826660156,
+        "y": 0.0,
+        "z": -52.70036697387695,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.061_lev1",
+        "x": -39.82347106933594,
+        "y": 0.0,
+        "z": -52.73988723754883,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.062_lev1",
+        "x": 13.541419982910156,
+        "y": 0.0,
+        "z": -53.08701705932617,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.063_lev1",
+        "x": 19.61554718017578,
+        "y": 0.0,
+        "z": -53.126529693603516,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.064_lev1",
+        "x": 31.327259063720703,
+        "y": 0.0,
+        "z": -53.20271682739258,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.065_lev1",
+        "x": 25.25313949584961,
+        "y": 0.0,
+        "z": -53.163204193115234,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.066_lev1",
+        "x": 37.233642578125,
+        "y": 0.0,
+        "z": -53.24113845825195,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.067_lev1",
+        "x": 43.307762145996094,
+        "y": 0.0,
+        "z": -53.2806510925293,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-m.068_lev1",
+        "x": 48.94535827636719,
+        "y": 0.0,
+        "z": -53.317325592041016,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.001_lev1",
+        "x": 37.34025573730469,
+        "y": 0.0,
+        "z": 37.19063186645508,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.001_lev1",
+        "x": 32.533573150634766,
+        "y": 0.0,
+        "z": 37.66362380981445,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.001_lev1",
+        "x": 30.57159423828125,
+        "y": 0.0,
+        "z": 16.149499893188477,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-barrier_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-cone_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-light_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "light-square-double_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tile-low_lev1",
+        "x": 28.584171295166016,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 44.1757926940918,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.001_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 36.20974349975586,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.002_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 28.285520553588867,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.003_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 20.357421875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.004_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 13.950590133666992,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tile-low.001_lev1",
+        "x": -0.31392574310302734,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.005_lev1",
+        "x": -3.957188606262207,
+        "y": 0.31425321102142334,
+        "z": 13.950590133666992,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.006_lev1",
+        "x": -3.957188606262207,
+        "y": 0.31425321102142334,
+        "z": 20.357421875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.007_lev1",
+        "x": -3.957188606262207,
+        "y": 0.31425321102142334,
+        "z": 28.285520553588867,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.008_lev1",
+        "x": -3.957188606262207,
+        "y": 0.31425321102142334,
+        "z": 36.20974349975586,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.009_lev1",
+        "x": -3.957188606262207,
+        "y": 0.31425321102142334,
+        "z": 44.1757926940918,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "light-square-double.001_lev1",
+        "x": -3.957188606262207,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.002_lev1",
+        "x": 1.673497200012207,
+        "y": 0.0,
+        "z": 16.149499893188477,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.003_lev1",
+        "x": 1.673497200012207,
+        "y": 0.0,
+        "z": 16.149499893188477,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-light.001_lev1",
+        "x": -3.957188606262207,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-cone.001_lev1",
+        "x": -3.957188606262207,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-barrier.001_lev1",
+        "x": -3.957188606262207,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "coin_structure_detailed.001_lev1",
+        "x": -3.9579782485961914,
+        "y": 1.3172268867492676,
+        "z": -37.55211639404297,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-e.001_lev1",
+        "x": -16.22571563720703,
+        "y": 0.0,
+        "z": 12.719131469726562,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.002_lev1",
+        "x": 8.442158699035645,
+        "y": 0.0,
+        "z": 37.19063186645508,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.003_lev1",
+        "x": 8.442158699035645,
+        "y": 0.0,
+        "z": 32.07607650756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.002_lev1",
+        "x": 3.6354761123657227,
+        "y": 0.0,
+        "z": 37.66362380981445,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.003_lev1",
+        "x": 3.6354761123657227,
+        "y": 0.0,
+        "z": 32.549068450927734,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n.001_lev1",
+        "x": -13.887774467468262,
+        "y": 0.0,
+        "z": 33.767250061035156,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-l.001_lev1",
+        "x": -11.649552345275879,
+        "y": 0.0,
+        "z": 17.367889404296875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-k.001_lev1",
+        "x": 6.026104927062988,
+        "y": 0.0,
+        "z": 18.17047119140625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-j.001_lev1",
+        "x": 5.967953681945801,
+        "y": 0.0,
+        "z": 13.160859107971191,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-h.001_lev1",
+        "x": -16.639110565185547,
+        "y": 0.0,
+        "z": 17.649293899536133,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-g.001_lev1",
+        "x": -11.5006742477417,
+        "y": 0.0,
+        "z": 12.260910987854004,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tile-low.002_lev1",
+        "x": -29.089948654174805,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.010_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 13.950590133666992,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.011_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 20.357421875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.012_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 28.285520553588867,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.013_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 36.20974349975586,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.014_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 44.1757926940918,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "light-square-double.002_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.004_lev1",
+        "x": -27.10252571105957,
+        "y": 0.0,
+        "z": 16.149499893188477,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.005_lev1",
+        "x": -27.10252571105957,
+        "y": 0.0,
+        "z": 16.149499893188477,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-light.002_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-cone.002_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-barrier.002_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 44.29906463623047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "coin_structure_detailed.002_lev1",
+        "x": -32.7339973449707,
+        "y": 1.3172268867492676,
+        "z": 24.783584594726562,
+        "level": 1,
+        "role": "finalPrize"
+    },
+    {
+        "name": "building-skyscraper-e.002_lev1",
+        "x": -45.00173568725586,
+        "y": 0.0,
+        "z": 12.719131469726562,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.004_lev1",
+        "x": -20.333864212036133,
+        "y": 0.0,
+        "z": 37.19063186645508,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.005_lev1",
+        "x": -20.333864212036133,
+        "y": 0.0,
+        "z": 32.07607650756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.004_lev1",
+        "x": -25.140546798706055,
+        "y": 0.0,
+        "z": 37.66362380981445,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.005_lev1",
+        "x": -25.140546798706055,
+        "y": 0.0,
+        "z": 32.549068450927734,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n.002_lev1",
+        "x": -42.663795471191406,
+        "y": 0.0,
+        "z": 33.767250061035156,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-l.002_lev1",
+        "x": -40.42557144165039,
+        "y": 0.0,
+        "z": 17.367889404296875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-k.002_lev1",
+        "x": -22.74991798400879,
+        "y": 0.0,
+        "z": 18.17047119140625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-j.002_lev1",
+        "x": -22.808069229125977,
+        "y": 0.0,
+        "z": 13.160859107971191,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-h.002_lev1",
+        "x": -45.415130615234375,
+        "y": 0.0,
+        "z": 17.649293899536133,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-g.002_lev1",
+        "x": -40.276695251464844,
+        "y": 0.0,
+        "z": 12.260910987854004,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tile-low.003_lev1",
+        "x": 28.584171295166016,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.015_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -23.639188766479492,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.016_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -17.232357025146484,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.017_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -9.304258346557617,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.018_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -1.380035400390625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.019_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 6.586014747619629,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "light-square-double.003_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.006_lev1",
+        "x": 30.57159423828125,
+        "y": 0.0,
+        "z": -21.440279006958008,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.007_lev1",
+        "x": 30.57159423828125,
+        "y": 0.0,
+        "z": -21.440279006958008,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-light.003_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-cone.003_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-barrier.003_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-e.003_lev1",
+        "x": 12.672380447387695,
+        "y": 0.0,
+        "z": -24.870647430419922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.006_lev1",
+        "x": 37.34025573730469,
+        "y": 0.0,
+        "z": -0.39914703369140625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.007_lev1",
+        "x": 37.34025573730469,
+        "y": 0.0,
+        "z": -5.513702392578125,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.006_lev1",
+        "x": 32.533573150634766,
+        "y": 0.0,
+        "z": 0.07384490966796875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.007_lev1",
+        "x": 32.533573150634766,
+        "y": 0.0,
+        "z": -5.04071044921875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n.003_lev1",
+        "x": 15.010322570800781,
+        "y": 0.0,
+        "z": -3.822528839111328,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-l.003_lev1",
+        "x": 17.248544692993164,
+        "y": 0.0,
+        "z": -20.22188949584961,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-k.003_lev1",
+        "x": 34.92420196533203,
+        "y": 0.0,
+        "z": -19.419307708740234,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-j.003_lev1",
+        "x": 34.866050720214844,
+        "y": 0.0,
+        "z": -24.42892074584961,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-h.003_lev1",
+        "x": 12.258986473083496,
+        "y": 0.0,
+        "z": -19.94048500061035,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-g.003_lev1",
+        "x": 17.397422790527344,
+        "y": 0.0,
+        "z": -25.328868865966797,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tile-low.004_lev1",
+        "x": -0.0837554931640625,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.020_lev1",
+        "x": -3.975614070892334,
+        "y": 0.31425321102142334,
+        "z": 6.586014747619629,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.021_lev1",
+        "x": -3.9308369159698486,
+        "y": 0.31425321102142334,
+        "z": -1.380035400390625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.022_lev1",
+        "x": -3.9308369159698486,
+        "y": 0.31425321102142334,
+        "z": -9.304258346557617,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.023_lev1",
+        "x": -3.9239892959594727,
+        "y": 0.31425321102142334,
+        "z": -17.232357025146484,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.024_lev1",
+        "x": -3.9239892959594727,
+        "y": 0.31425321102142334,
+        "z": -23.639188766479492,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "light-square-double.004_lev1",
+        "x": -3.727018356323242,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.008_lev1",
+        "x": 1.9036674499511719,
+        "y": 0.0,
+        "z": -21.440279006958008,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.009_lev1",
+        "x": 1.9036674499511719,
+        "y": 0.0,
+        "z": -21.440279006958008,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-light.004_lev1",
+        "x": -3.727018356323242,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-cone.004_lev1",
+        "x": -3.727018356323242,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-barrier.004_lev1",
+        "x": -3.727018356323242,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-e.004_lev1",
+        "x": -15.995546340942383,
+        "y": 0.0,
+        "z": -24.870647430419922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.008_lev1",
+        "x": 8.67232894897461,
+        "y": 0.0,
+        "z": -5.513702392578125,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.009_lev1",
+        "x": 8.67232894897461,
+        "y": 0.0,
+        "z": -0.39914703369140625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.008_lev1",
+        "x": 3.8656463623046875,
+        "y": 0.0,
+        "z": -5.04071044921875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.009_lev1",
+        "x": 3.8656463623046875,
+        "y": 0.0,
+        "z": 0.07384490966796875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n.004_lev1",
+        "x": -13.657604217529297,
+        "y": 0.0,
+        "z": -3.822528839111328,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-l.004_lev1",
+        "x": -11.419382095336914,
+        "y": 0.0,
+        "z": -20.22188949584961,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-k.004_lev1",
+        "x": 6.256275177001953,
+        "y": 0.0,
+        "z": -19.419307708740234,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-j.004_lev1",
+        "x": 6.198123931884766,
+        "y": 0.0,
+        "z": -24.42892074584961,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-h.004_lev1",
+        "x": -16.408939361572266,
+        "y": 0.0,
+        "z": -19.94048500061035,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-g.004_lev1",
+        "x": -11.270503997802734,
+        "y": 0.0,
+        "z": -25.328868865966797,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tile-low.005_lev1",
+        "x": -29.12191390991211,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.025_lev1",
+        "x": -32.765174865722656,
+        "y": 0.31425321102142334,
+        "z": 6.586014747619629,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.026_lev1",
+        "x": -32.765174865722656,
+        "y": 0.31425321102142334,
+        "z": -1.380035400390625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.027_lev1",
+        "x": -32.765174865722656,
+        "y": 0.31425321102142334,
+        "z": -9.304258346557617,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.028_lev1",
+        "x": -32.765174865722656,
+        "y": 0.31425321102142334,
+        "z": -17.232357025146484,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.029_lev1",
+        "x": -32.765174865722656,
+        "y": 0.31425321102142334,
+        "z": -23.639188766479492,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "light-square-double.005_lev1",
+        "x": -32.765174865722656,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.010_lev1",
+        "x": -27.134490966796875,
+        "y": 0.0,
+        "z": -21.440279006958008,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.011_lev1",
+        "x": -27.134490966796875,
+        "y": 0.0,
+        "z": -21.440279006958008,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-light.005_lev1",
+        "x": -32.765174865722656,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-cone.005_lev1",
+        "x": -32.765174865722656,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-barrier.005_lev1",
+        "x": -32.765174865722656,
+        "y": 0.31425321102142334,
+        "z": 6.709285736083984,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-e.005_lev1",
+        "x": -45.03370666503906,
+        "y": 0.0,
+        "z": -24.870647430419922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.010_lev1",
+        "x": -20.365829467773438,
+        "y": 0.0,
+        "z": -5.513702392578125,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.011_lev1",
+        "x": -20.365829467773438,
+        "y": 0.0,
+        "z": -0.39914703369140625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.010_lev1",
+        "x": -25.17251205444336,
+        "y": 0.0,
+        "z": -5.04071044921875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.011_lev1",
+        "x": -25.17251205444336,
+        "y": 0.0,
+        "z": 0.07384490966796875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n.005_lev1",
+        "x": -42.695762634277344,
+        "y": 0.0,
+        "z": -3.822528839111328,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-l.005_lev1",
+        "x": -40.457542419433594,
+        "y": 0.0,
+        "z": -20.22188949584961,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-k.005_lev1",
+        "x": -22.781883239746094,
+        "y": 0.0,
+        "z": -19.419307708740234,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-j.005_lev1",
+        "x": -22.84003448486328,
+        "y": 0.0,
+        "z": -24.42892074584961,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-h.005_lev1",
+        "x": -45.44709777832031,
+        "y": 0.0,
+        "z": -19.94048500061035,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-g.005_lev1",
+        "x": -40.30866241455078,
+        "y": 0.0,
+        "z": -25.328868865966797,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tile-low.006_lev1",
+        "x": 28.584171295166016,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.030_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -30.835758209228516,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.031_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -38.80180740356445,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.032_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -46.72602844238281,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "light-square-double.006_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-light.006_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-cone.006_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-barrier.006_lev1",
+        "x": 24.940908432006836,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.012_lev1",
+        "x": 37.34025573730469,
+        "y": 0.0,
+        "z": -42.93547439575195,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.013_lev1",
+        "x": 37.34025573730469,
+        "y": 0.0,
+        "z": -37.820919036865234,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.012_lev1",
+        "x": 32.533573150634766,
+        "y": 0.0,
+        "z": -42.46248245239258,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.013_lev1",
+        "x": 32.533573150634766,
+        "y": 0.0,
+        "z": -37.34792709350586,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n.006_lev1",
+        "x": 15.010322570800781,
+        "y": 0.0,
+        "z": -41.244300842285156,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tile-low.007_lev1",
+        "x": -0.2783355712890625,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.037_lev1",
+        "x": -3.921598434448242,
+        "y": 0.31425321102142334,
+        "z": -46.72602844238281,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.038_lev1",
+        "x": -3.921598434448242,
+        "y": 0.31425321102142334,
+        "z": -38.80180740356445,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.039_lev1",
+        "x": -3.921598434448242,
+        "y": 0.31425321102142334,
+        "z": -30.835758209228516,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "light-square-double.007_lev1",
+        "x": -3.921598434448242,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-light.007_lev1",
+        "x": -3.921598434448242,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-cone.007_lev1",
+        "x": -3.921598434448242,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-barrier.007_lev1",
+        "x": -3.921598434448242,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.014_lev1",
+        "x": 8.47774887084961,
+        "y": 0.0,
+        "z": -37.820919036865234,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.015_lev1",
+        "x": 8.47774887084961,
+        "y": 0.0,
+        "z": -42.93547439575195,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.014_lev1",
+        "x": 3.6710662841796875,
+        "y": 0.0,
+        "z": -37.34792709350586,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.015_lev1",
+        "x": 3.6710662841796875,
+        "y": 0.0,
+        "z": -42.46248245239258,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n.007_lev1",
+        "x": -13.852184295654297,
+        "y": 0.0,
+        "z": -41.244300842285156,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tile-low.008_lev1",
+        "x": -29.07538604736328,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.041_lev1",
+        "x": -32.718650817871094,
+        "y": 0.31425321102142334,
+        "z": -54.65412902832031,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.042_lev1",
+        "x": -32.85475158691406,
+        "y": 0.31425321102142334,
+        "z": -46.72602844238281,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.043_lev1",
+        "x": -32.86253356933594,
+        "y": 0.31425321102142334,
+        "z": -38.80180740356445,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.044_lev1",
+        "x": -32.82078552246094,
+        "y": 0.31425321102142334,
+        "z": -30.835758209228516,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "light-square-double.008_lev1",
+        "x": -32.718650817871094,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-light.008_lev1",
+        "x": -32.718650817871094,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-cone.008_lev1",
+        "x": -32.718650817871094,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "construction-barrier.008_lev1",
+        "x": -32.718650817871094,
+        "y": 0.31425321102142334,
+        "z": -30.712486267089844,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.016_lev1",
+        "x": -20.31930160522461,
+        "y": 0.0,
+        "z": -37.820919036865234,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-d.017_lev1",
+        "x": -20.31930160522461,
+        "y": 0.0,
+        "z": -42.93547439575195,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.016_lev1",
+        "x": -25.12598419189453,
+        "y": 0.0,
+        "z": -37.34792709350586,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-skyscraper-a.017_lev1",
+        "x": -25.12598419189453,
+        "y": 0.0,
+        "z": -42.46248245239258,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "building-n.008_lev1",
+        "x": -42.649234771728516,
+        "y": 0.0,
+        "z": -41.244300842285156,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.033_lev1",
+        "x": 31.944665908813477,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.034_lev1",
+        "x": 39.87889099121094,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.035_lev1",
+        "x": 44.255210876464844,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.036_lev1",
+        "x": 17.887075424194336,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.040_lev1",
+        "x": 10.171724319458008,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.045_lev1",
+        "x": 3.0045113563537598,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.046_lev1",
+        "x": -10.933918952941895,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.047_lev1",
+        "x": -18.297931671142578,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.048_lev1",
+        "x": -25.666372299194336,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.049_lev1",
+        "x": -39.6201171875,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.050_lev1",
+        "x": -44.8994255065918,
+        "y": 0.31425321102142334,
+        "z": 24.548147201538086,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.051_lev1",
+        "x": -44.8994255065918,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.052_lev1",
+        "x": -39.6201171875,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.053_lev1",
+        "x": -25.666372299194336,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.054_lev1",
+        "x": -18.297931671142578,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.055_lev1",
+        "x": -10.933918952941895,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.056_lev1",
+        "x": 3.0045113563537598,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.057_lev1",
+        "x": 10.171724319458008,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.058_lev1",
+        "x": 17.887075424194336,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.059_lev1",
+        "x": 44.255210876464844,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.060_lev1",
+        "x": 39.87889099121094,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.061_lev1",
+        "x": 31.944665908813477,
+        "y": 0.31425321102142334,
+        "z": -12.155706405639648,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.062_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": 7.471940040588379,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.063_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": -0.494110107421875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.064_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": -20.066822052001953,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.065_lev1",
+        "x": -32.733211517333984,
+        "y": 0.31425321102142334,
+        "z": -12.100772857666016,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.066_lev1",
+        "x": 31.944665908813477,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.067_lev1",
+        "x": 39.87889099121094,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.068_lev1",
+        "x": 44.255210876464844,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.069_lev1",
+        "x": 17.887075424194336,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.070_lev1",
+        "x": 10.171724319458008,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.071_lev1",
+        "x": 3.0045113563537598,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.072_lev1",
+        "x": -10.933918952941895,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.073_lev1",
+        "x": -18.297931671142578,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.074_lev1",
+        "x": -25.666372299194336,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.075_lev1",
+        "x": -39.6201171875,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "street_straight.076_lev1",
+        "x": -44.8994255065918,
+        "y": 0.31425321102142334,
+        "z": -31.72842025756836,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_cube.001_lev1",
+        "x": -1.549345850944519,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_backwheels_cylinder.001_lev1",
+        "x": -1.549345850944519,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontleftwheel_cylinder.011_lev1",
+        "x": -1.549345850944519,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontrightwheel_cylinder.012_lev1",
+        "x": -1.549345850944519,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontrightwheel_cylinder.001_lev1",
+        "x": -30.92913818359375,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontleftwheel_cylinder.001_lev1",
+        "x": -30.92913818359375,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_cube.002_lev1",
+        "x": -30.92913818359375,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_backwheels_cylinder.002_lev1",
+        "x": -30.92913818359375,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontrightwheel_cylinder.002_lev1",
+        "x": 23.12325668334961,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontleftwheel_cylinder.002_lev1",
+        "x": 23.12325668334961,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_cube.003_lev1",
+        "x": 23.12325668334961,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_backwheels_cylinder.003_lev1",
+        "x": 23.12325668334961,
+        "y": 0.0,
+        "z": -22.753704071044922,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontrightwheel_cylinder.003_lev1",
+        "x": 23.12325668334961,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontleftwheel_cylinder.003_lev1",
+        "x": 23.12325668334961,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_cube.004_lev1",
+        "x": 23.12325668334961,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_backwheels_cylinder.004_lev1",
+        "x": 23.12325668334961,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontrightwheel_cylinder.004_lev1",
+        "x": -6.075603485107422,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontleftwheel_cylinder.004_lev1",
+        "x": -6.075603485107422,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_cube.005_lev1",
+        "x": -6.075603485107422,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_backwheels_cylinder.005_lev1",
+        "x": -6.075603485107422,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontrightwheel_cylinder.005_lev1",
+        "x": -34.75675964355469,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_frontleftwheel_cylinder.005_lev1",
+        "x": -34.75675964355469,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_cube.006_lev1",
+        "x": -34.75675964355469,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "cop_backwheels_cylinder.006_lev1",
+        "x": -34.75675964355469,
+        "y": 0.0,
+        "z": 12.630226135253906,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "backwheels_lev1",
+        "x": -1.7845704555511475,
+        "y": 0.2897118330001831,
+        "z": -7.144776344299316,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "car_dook_lev1",
+        "x": -1.7845704555511475,
+        "y": 0.0,
+        "z": -6.108151435852051,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "frontwheels_lev1",
+        "x": -1.7837005853652954,
+        "y": 0.2897118330001831,
+        "z": -4.854152679443359,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "frontwheels.001_lev1",
+        "x": -1.7837005853652954,
+        "y": 0.2897118330001831,
+        "z": 35.59583282470703,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "car_dook.001_lev1",
+        "x": -1.7845704555511475,
+        "y": 0.0,
+        "z": 34.341835021972656,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "backwheels.001_lev1",
+        "x": -1.7845704555511475,
+        "y": 0.2897118330001831,
+        "z": 33.30521011352539,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "frontwheels.002_lev1",
+        "x": -30.75398063659668,
+        "y": 0.2897118330001831,
+        "z": 35.59583282470703,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "car_dook.002_lev1",
+        "x": -30.754850387573242,
+        "y": 0.0,
+        "z": 34.341835021972656,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "backwheels.002_lev1",
+        "x": -30.754850387573242,
+        "y": 0.2897118330001831,
+        "z": 33.30521011352539,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "frontwheels.003_lev1",
+        "x": 27.21128273010254,
+        "y": 0.2897118330001831,
+        "z": 35.59583282470703,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "car_dook.003_lev1",
+        "x": 27.210412979125977,
+        "y": 0.0,
+        "z": 34.341835021972656,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "backwheels.003_lev1",
+        "x": 27.210412979125977,
+        "y": 0.2897118330001831,
+        "z": 33.30521011352539,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "frontwheels.004_lev1",
+        "x": 27.21128273010254,
+        "y": 0.2897118330001831,
+        "z": -0.5196793079376221,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "car_dook.004_lev1",
+        "x": 27.210412979125977,
+        "y": 0.0,
+        "z": -1.7736778259277344,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "backwheels.004_lev1",
+        "x": 27.210412979125977,
+        "y": 0.2897118330001831,
+        "z": -2.810302495956421,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "trafficlight_2_lev1",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 29.540794372558594,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "trafficlight_2.001_lev1",
+        "x": 29.587501525878906,
+        "y": 0.0,
+        "z": 29.540794372558594,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "trafficlight_2.002_lev1",
+        "x": -28.43065643310547,
+        "y": 0.0,
+        "z": 29.540794372558594,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "trafficlight_2.003_lev1",
+        "x": -28.398990631103516,
+        "y": 0.0,
+        "z": -7.966266632080078,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "trafficlight_2.004_lev1",
+        "x": 0.6246776580810547,
+        "y": 0.0,
+        "z": -7.966266632080078,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "trafficlight_2.005_lev1",
+        "x": 30.205320358276367,
+        "y": 0.0,
+        "z": -7.966266632080078,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "trafficlight_2.006_lev1",
+        "x": 30.205320358276367,
+        "y": 0.0,
+        "z": -26.92582130432129,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "trafficlight_2.007_lev1",
+        "x": 0.2576900124549866,
+        "y": 0.0,
+        "z": -26.92582130432129,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "trafficlight_2.008_lev1",
+        "x": -28.5330810546875,
+        "y": 0.0,
+        "z": -26.92582130432129,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.007_lev1",
+        "x": 10.36374568939209,
+        "y": 0.0,
+        "z": 6.285703182220459,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.001_lev1",
+        "x": -18.490985870361328,
+        "y": 0.0,
+        "z": 6.285703182220459,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.002_lev1",
+        "x": 42.62135696411133,
+        "y": 0.0,
+        "z": 6.285703182220459,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.003_lev1",
+        "x": 43.585975646972656,
+        "y": 0.0,
+        "z": -40.3717041015625,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.004_lev1",
+        "x": 43.585975646972656,
+        "y": 0.0,
+        "z": -21.185897827148438,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.005_lev1",
+        "x": 43.585975646972656,
+        "y": 0.0,
+        "z": 42.71346664428711,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.006_lev1",
+        "x": -41.40279006958008,
+        "y": 0.0,
+        "z": 5.364552974700928,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "car_dook.005_lev1",
+        "x": -30.754850387573242,
+        "y": 0.0,
+        "z": -2.3304901123046875,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.005.001_lev1",
+        "x": 15.856884002685547,
+        "y": 0.0,
+        "z": 42.71346664428711,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.005.002_lev1",
+        "x": -12.617193222045898,
+        "y": 0.0,
+        "z": 42.71346664428711,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "tree_green01_cube.005.003_lev1",
+        "x": -41.45881271362305,
+        "y": 0.0,
+        "z": 42.71346664428711,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.002.001_lev1",
+        "x": 4.186095237731934,
+        "y": 0.0,
+        "z": 6.418905258178711,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.002.002_lev1",
+        "x": 17.03546905517578,
+        "y": 0.0,
+        "z": 4.276862144470215,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.002.003_lev1",
+        "x": 35.63743209838867,
+        "y": 0.0,
+        "z": 6.159389019012451,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.002.004_lev1",
+        "x": 45.07981872558594,
+        "y": 0.0,
+        "z": 15.057445526123047,
+        "level": 1,
+        "role": "default"
+    },
+    {
+        "name": "detail-parasol-a.002.005_lev1",
+        "x": -12.020596504211426,
+        "y": 0.0,
+        "z": 5.597982883453369,
+        "level": 1,
+        "role": "default"
+    } 
+]

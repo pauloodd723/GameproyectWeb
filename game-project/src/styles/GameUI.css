@@ -1,0 +1,195 @@
+/* ── HUD principal — WCAG AA compliant ── */
+.game-hud {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(6, 12, 6, 0.94);
+  border: 2px solid rgba(80, 200, 60, 0.55);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 5000;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  min-width: 200px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 0 0 1px rgba(80,200,60,0.1);
+}
+
+/* Sección individual del HUD */
+.hud-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 4px 0;
+}
+
+.hud-icon {
+  font-size: 1.15rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* WCAG: contraste mínimo 4.5:1 */
+.hud-label {
+  color: #a8d090;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  flex: 1;
+}
+
+.hud-value {
+  color: #e8ffcc;
+  font-weight: 700;
+  font-size: 1.05rem;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Nivel — azul cian destacado */
+.hud-level .hud-value--level {
+  color: #7ef0ff;
+  font-size: 1.2rem;
+}
+
+.hud-total {
+  font-size: 0.75rem;
+  color: #5ab8c8;
+  font-weight: 400;
+}
+
+/* Puntos globales — dorado */
+.hud-global .hud-value--global {
+  color: #ffd700;
+  font-size: 1.1rem;
+}
+
+/* Muertes — rojo legible */
+.hud-value--deaths {
+  color: #ff8080;
+}
+
+/* Separador */
+.hud-divider {
+  height: 1px;
+  background: rgba(80, 200, 60, 0.3);
+  margin: 5px 0;
+}
+
+/* ── Botón de salida ── */
+.exit-btn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 5000;
+  background: rgba(10, 5, 5, 0.85);
+  border: 2px solid rgba(200, 60, 60, 0.6);
+  border-radius: 8px;
+  color: #ffaaaa;   /* ratio ~5.5:1 */
+  font-size: 0.82rem;
+  font-family: monospace;
+  padding: 7px 14px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.exit-btn:hover,
+.exit-btn:focus-visible {
+  background: rgba(140, 20, 20, 0.75);
+  border-color: rgba(255, 80, 80, 0.8);
+  outline: 2px solid #ff8080;
+  outline-offset: 2px;
+}
+
+/* ── Overlay de salida ── */
+.exit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20000;
+  backdrop-filter: blur(3px);
+}
+
+.exit-card {
+  background: #0d1008;
+  border: 2px solid rgba(200, 60, 60, 0.5);
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  max-width: 340px;
+  width: 90%;
+  box-shadow: 0 0 40px rgba(180, 20, 20, 0.3);
+}
+
+.exit-card h3 {
+  margin: 0 0 0.5rem;
+  color: #ff9090;   /* ratio ~5.1:1 */
+  font-family: monospace;
+  font-size: 1.15rem;
+}
+
+.exit-card p {
+  color: #c8c8c8;   /* ratio ~7.4:1 */
+  font-size: 0.9rem;
+  margin: 0 0 1.2rem;
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+.exit-card-hint {
+  font-size: 0.75rem;
+  color: #888;      /* ratio ~4.6:1 */
+  margin-bottom: 1.4rem !important;
+}
+
+.exit-card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.exit-card-buttons button {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font-size: 0.92rem;
+  font-weight: 700;
+  font-family: monospace;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.exit-card-buttons button:focus-visible {
+  outline: 3px solid #ffff80;
+  outline-offset: 2px;
+}
+
+.btn-confirm-exit {
+  background: rgba(180, 30, 30, 0.9);
+  color: #ffdddd;   /* ratio ~7.8:1 */
+  border-color: rgba(255, 100, 100, 0.5);
+}
+
+.btn-confirm-exit:hover {
+  background: rgba(220, 40, 40, 1);
+}
+
+.btn-cancel-exit {
+  background: rgba(40, 60, 30, 0.8);
+  color: #c8e6a0;   /* ratio ~6.2:1 */
+  border-color: rgba(80, 200, 60, 0.35);
+}
+
+.btn-cancel-exit:hover {
+  background: rgba(50, 80, 35, 0.9);
+}
