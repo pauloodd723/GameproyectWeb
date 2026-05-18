@@ -419,6 +419,8 @@ export default class World {
                 await this.loader.loadFromURL(apiUrl)
             }
 
+            this.loader.billboards.create(level)
+
             this.loader.prizes.forEach(p => {
                 if (p.model) p.model.visible = (p.role !== 'finalPrize')
                 p.collected = false
@@ -438,6 +440,9 @@ export default class World {
             console.warn('⚠️ No se puede limpiar: sistema de físicas no disponible.')
             return
         }
+
+        // Limpiar carteles primero (dispone texturas canvas)
+        this.loader?.billboards?.dispose()
 
         const childrenToRemove = []
         this.scene.children.forEach((child) => { if (child.userData?.levelObject) childrenToRemove.push(child) })

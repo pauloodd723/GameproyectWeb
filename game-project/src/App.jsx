@@ -125,43 +125,53 @@ const App = () => {
         >
           {/* Nivel */}
           <div className="hud-section hud-level" aria-label={`Nivel ${hud.level} de ${hud.totalLevels}`}>
-            <span className="hud-icon" aria-hidden="true">🏁</span>
-            <span className="hud-label">Nivel</span>
-            <span className="hud-value hud-value--level">
-              {hud.level}<span className="hud-total">/{hud.totalLevels}</span>
-            </span>
+            <span className="hud-icon hud-icon--level" aria-hidden="true">🏁</span>
+            <div className="hud-stat-body">
+              <span className="hud-label">Nivel</span>
+              <span className="hud-value hud-value--level">
+                {hud.level}<span className="hud-total">/{hud.totalLevels}</span>
+              </span>
+            </div>
           </div>
 
           <div className="hud-divider" aria-hidden="true"></div>
 
           {/* Puntos del nivel */}
-          <div className="hud-section" aria-label={`${hud.points} esmeraldas recogidas en este nivel`}>
-            <span className="hud-icon" aria-hidden="true">💎</span>
-            <span className="hud-label">Nivel</span>
-            <span className="hud-value">{hud.points}</span>
+          <div className="hud-section hud-score" aria-label={`${hud.points} esmeraldas recogidas en este nivel`}>
+            <span className="hud-icon hud-score-icon" aria-hidden="true">💎</span>
+            <div className="hud-score-body">
+              <span className="hud-label">Puntos</span>
+              <span className="hud-value hud-value--score">{hud.points}</span>
+            </div>
           </div>
 
           {/* Puntos globales */}
           <div className="hud-section hud-global" aria-label={`${hud.globalPoints} esmeraldas totales`}>
-            <span className="hud-icon" aria-hidden="true">🌟</span>
-            <span className="hud-label">Global</span>
-            <span className="hud-value hud-value--global">{hud.globalPoints}</span>
+            <span className="hud-icon hud-icon--global" aria-hidden="true">🌟</span>
+            <div className="hud-stat-body">
+              <span className="hud-label">Global</span>
+              <span className="hud-value hud-value--global">{hud.globalPoints}</span>
+            </div>
           </div>
 
           <div className="hud-divider" aria-hidden="true"></div>
 
           {/* Tiempo */}
-          <div className="hud-section" aria-label={`Tiempo transcurrido: ${formatTime(hud.time)}`}>
-            <span className="hud-icon" aria-hidden="true">⏱</span>
-            <span className="hud-label">Tiempo</span>
-            <span className="hud-value">{formatTime(hud.time)}</span>
+          <div className="hud-section hud-time" aria-label={`Tiempo transcurrido: ${formatTime(hud.time)}`}>
+            <span className="hud-icon hud-icon--time" aria-hidden="true">⏱</span>
+            <div className="hud-stat-body">
+              <span className="hud-label">Tiempo</span>
+              <span className="hud-value hud-value--time">{formatTime(hud.time)}</span>
+            </div>
           </div>
 
           {/* Muertes */}
           <div className="hud-section hud-deaths" aria-label={`${hud.deaths} muertes`}>
-            <span className="hud-icon" aria-hidden="true">💀</span>
-            <span className="hud-label">Muertes</span>
-            <span className="hud-value hud-value--deaths">{hud.deaths}</span>
+            <span className="hud-icon hud-icon--deaths" aria-hidden="true">💀</span>
+            <div className="hud-stat-body">
+              <span className="hud-label">Muertes</span>
+              <span className="hud-value hud-value--deaths">{hud.deaths}</span>
+            </div>
           </div>
         </div>
       )}
