@@ -27,7 +27,7 @@ const App = () => {
     deaths: 0,
     time: 0,
     level: 1,
-    totalLevels: 4
+    totalLevels: 5
   })
 
   const handleLogout = useCallback(async () => {

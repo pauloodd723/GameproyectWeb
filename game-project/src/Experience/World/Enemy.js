@@ -4,120 +4,129 @@ import Sound from './Sound.js'
 
 export default class Enemy {
     constructor({ scene, physicsWorld, playerRef, model, position, experience, zombieGlb = null }) {
-        this.experience = experience
-        this.scene = scene
+        this.experience   = experience
+        this.scene        = scene
         this.physicsWorld = physicsWorld
-        this.playerRef = playerRef
-        this.baseSpeed = 1.0
-        this.speed = this.baseSpeed
+        this.playerRef    = playerRef
+        this._dead        = false
+
+        // ✅ Velocidad según nivel
+        const nivel = experience.world?.levelManager?.currentLevel || 1
+        const speeds = { 1: 1.2, 2: 1.6, 3: 2.0, 4: 2.5, 5: 3.2 }
+        this.baseSpeed = speeds[nivel] || 1.2
+        this.speed     = this.baseSpeed
+
         this.delayActivation = 0
 
-        // Sonido de proximidad en loop
         this.proximitySound = new Sound('/sounds/alert.ogg', { loop: true, volume: 0 })
-        this._soundCooldown = 0
         this.proximitySound.play()
 
-        // El modelo ya viene clonado correctamente con SkeletonUtils desde World.js
+        // ── Modelo ────────────────────────────────────────────────────────────
         this.model = model
-        this.model.position.copy(position)
+
+        // ✅ Zombie más grande: escala 0.22 (antes 0.163)
+        // Offset Y: 2.249 * 0.22 = 0.495
+        this.model.scale.set(0.22, 0.22, 0.22)
+        this.model.position.set(position.x, position.y - 0.495, position.z)
         this.scene.add(this.model)
 
-        // Animación — usa clips del GLB original
+        // ── Animación ─────────────────────────────────────────────────────────
         if (zombieGlb?.animations?.length) {
             this.mixer = new THREE.AnimationMixer(this.model)
-            const clip = zombieGlb.animations.find(a =>
-                /walk|run|move/i.test(a.name)
-            ) || zombieGlb.animations[0]
-            this.mixer.clipAction(clip).play()
+
+            // [11] Walk — zombie de pie caminando
+            const walkClip = zombieGlb.animations[11]
+                || zombieGlb.animations.find(a => a.name === 'Armature|Walk')
+                || zombieGlb.animations.find(a => /walk/i.test(a.name) && !/crawl/i.test(a.name))
+
+            if (walkClip) {
+                const action = this.mixer.clipAction(walkClip)
+                action.setLoop(THREE.LoopRepeat, Infinity)
+                action.play()
+            }
         }
 
-        // Material físico
-        const enemyMaterial = new CANNON.Material('enemyMaterial')
-        enemyMaterial.friction = 0.0
+        // ── Física ────────────────────────────────────────────────────────────
+        const mat    = new CANNON.Material('enemyMaterial')
+        mat.friction = 0.0
 
-        // Cuerpo físico
         this.body = new CANNON.Body({
-            mass: 5,
-            shape: new CANNON.Sphere(0.5),
-            material: enemyMaterial,
-            position: new CANNON.Vec3(position.x, position.y, position.z),
+            mass:          5,
+            shape:         new CANNON.Sphere(0.5),
+            material:      mat,
+            position:      new CANNON.Vec3(position.x, position.y, position.z),
             linearDamping: 0.01
         })
 
-        // Alinear altura con el robot (igual que original)
         if (this.playerRef?.body) {
             this.body.position.y = this.playerRef.body.position.y
-            this.model.position.y = this.body.position.y
         }
 
         this.body.sleepSpeedLimit = 0.0
         this.body.wakeUp()
         this.physicsWorld.addBody(this.body)
-
         this.model.userData.physicsBody = this.body
 
-        // Colisión con robot — igual que original
         this._onCollide = (event) => {
             if (event.body !== this.playerRef?.body) return
             this.experience.world?.triggerDefeat()
-            if (this.proximitySound) this.proximitySound.stop()
-            if (this.model.parent) this.destroy()
+            this.proximitySound?.stop()
+            if (this.model?.parent) this.destroy()
         }
         this.body.addEventListener('collide', this._onCollide)
     }
 
     update(delta, gameActive = false) {
-        // Siempre sincronizar visual con cuerpo físico, incluso antes de iniciar juego
+        if (this._dead) return
+
         if (this.body && this.model) {
-            this.model.position.copy(this.body.position)
+            this.model.position.x = this.body.position.x
+            this.model.position.y = this.body.position.y - 0.495
+            this.model.position.z = this.body.position.z
         }
+
         if (this.mixer) this.mixer.update(delta)
 
-        // Movimiento AI solo cuando el juego está activo
         if (!gameActive) return
-
         if (this.delayActivation > 0) {
             this.delayActivation -= delta
             return
         }
-
         if (!this.body || !this.playerRef?.body) return
 
-        const targetPos = new CANNON.Vec3(
-            this.playerRef.body.position.x,
-            this.playerRef.body.position.y,
-            this.playerRef.body.position.z
-        )
-        const enemyPos = this.body.position
+        const ePos = this.body.position
+        const pPos = this.playerRef.body.position
 
-        const distance = enemyPos.distanceTo(targetPos)
-        this.speed = distance < 4 ? 2.5 : this.baseSpeed
+        const dx       = pPos.x - ePos.x
+        const dz       = pPos.z - ePos.z
+        const distance = Math.sqrt(dx * dx + dz * dz)
 
-        const maxDistance = 10
-        const proximityVolume = 1 - Math.min(distance, maxDistance) / maxDistance
-        this.proximitySound?.setVolume(proximityVolume * 0.8)
+        const vol = Math.max(0, 1 - Math.min(distance, 15) / 15)
+        this.proximitySound?.setVolume(vol * 0.8)
 
-        const direction = new CANNON.Vec3(
-            targetPos.x - enemyPos.x,
-            targetPos.y - enemyPos.y,
-            targetPos.z - enemyPos.z
-        )
+        if (distance < 0.8) return
 
-        if (direction.length() > 0.5) {
-            direction.normalize()
-            direction.scale(this.speed, direction)
-            this.body.velocity.x = direction.x
-            this.body.velocity.y = direction.y
-            this.body.velocity.z = direction.z
-        }
+        this.speed = distance < 5 ? this.baseSpeed * 1.6 : this.baseSpeed
+
+        const len = Math.sqrt(dx * dx + dz * dz)
+        const nx  = dx / len
+        const nz  = dz / len
+
+        this.body.velocity.x = nx * this.speed
+        this.body.velocity.z = nz * this.speed
+        this.body.velocity.y = (pPos.y - ePos.y) * 2
+
+        this.model.rotation.y = Math.atan2(nx, nz)
     }
 
     destroy() {
+        if (this._dead) return
+        this._dead = true
         if (this.model) {
             this.scene.remove(this.model)
             this.model = null
         }
-        if (this.proximitySound) this.proximitySound.stop()
+        this.proximitySound?.stop()
         if (this.body) {
             this.body.removeEventListener('collide', this._onCollide)
             if (this.physicsWorld.bodies.includes(this.body)) {

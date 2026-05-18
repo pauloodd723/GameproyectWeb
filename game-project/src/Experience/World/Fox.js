@@ -8,12 +8,10 @@ export default class Fox {
         this.time = this.experience.time
         this.debug = this.experience.debug
 
-        // Debug
         if (this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder('fox')
         }
 
-        // Resource
         this.resource = this.resources.items.foxModel
 
         this.setModel()
@@ -22,34 +20,33 @@ export default class Fox {
 
     setModel() {
         this.model = this.resource.scene
-        this.model.scale.set(0.02, 0.02, 0.02)
+
+        // ✅ Más pequeño que el robot
+        this.model.scale.set(0.012, 0.012, 0.012)
+
+        // ✅ Posición inicial al lado derecho
         this.model.position.set(3, 0, 0)
         this.scene.add(this.model)
-        //Activando la sobra de fox
+
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true
             }
         })
     }
-    //Manejo GUI
+
     setAnimation() {
         this.animation = {}
-
-        // Mixer
         this.animation.mixer = new THREE.AnimationMixer(this.model)
 
-        // Actions
         this.animation.actions = {}
-
-        this.animation.actions.idle = this.animation.mixer.clipAction(this.resource.animations[0])
+        this.animation.actions.idle    = this.animation.mixer.clipAction(this.resource.animations[0])
         this.animation.actions.walking = this.animation.mixer.clipAction(this.resource.animations[1])
         this.animation.actions.running = this.animation.mixer.clipAction(this.resource.animations[2])
 
         this.animation.actions.current = this.animation.actions.idle
         this.animation.actions.current.play()
 
-        // Play the action
         this.animation.play = (name) => {
             const newAction = this.animation.actions[name]
             const oldAction = this.animation.actions.current
@@ -61,10 +58,9 @@ export default class Fox {
             this.animation.actions.current = newAction
         }
 
-        // Debug
         if (this.debug.active) {
             const debugObject = {
-                playIdle: () => { this.animation.play('idle') },
+                playIdle:    () => { this.animation.play('idle') },
                 playWalking: () => { this.animation.play('walking') },
                 playRunning: () => { this.animation.play('running') }
             }
