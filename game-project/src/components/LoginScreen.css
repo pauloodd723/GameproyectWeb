@@ -249,6 +249,64 @@
   color: #a5d65a;
 }
 
+/* ── Modo invitado ── */
+.login-guest-section {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.login-guest-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(140, 180, 80, 0.25);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+
+.login-guest-divider::before,
+.login-guest-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(80, 120, 30, 0.25);
+}
+
+.login-guest-btn {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: transparent;
+  border: 1px dashed rgba(100, 160, 30, 0.35);
+  border-radius: 4px;
+  color: rgba(160, 210, 90, 0.6);
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.login-guest-btn:hover {
+  background: rgba(60, 100, 15, 0.2);
+  border-color: rgba(120, 190, 40, 0.55);
+  color: rgba(190, 230, 110, 0.85);
+}
+
+.login-guest-hint {
+  font-size: 0.66rem;
+  color: rgba(140, 180, 80, 0.28);
+  letter-spacing: 0.06em;
+  margin: 0;
+  text-align: center;
+}
+
 /* Footer */
 .login-footer {
   margin-top: 1.2rem;

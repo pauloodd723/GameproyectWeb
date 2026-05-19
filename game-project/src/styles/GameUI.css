@@ -1,84 +1,207 @@
-/* ── HUD principal — WCAG AA compliant ── */
+/* ── Animaciones ── */
+@keyframes hudScoreGlow {
+  0%, 100% { text-shadow: 0 0 8px rgba(80, 255, 80, 0.7), 0 0 20px rgba(40, 200, 40, 0.4); }
+  50%       { text-shadow: 0 0 14px rgba(120, 255, 100, 1), 0 0 35px rgba(80, 220, 60, 0.7); }
+}
+@keyframes hudGoldGlow {
+  0%, 100% { text-shadow: 0 0 8px rgba(255, 200, 0, 0.6), 0 0 18px rgba(255, 170, 0, 0.3); }
+  50%       { text-shadow: 0 0 14px rgba(255, 220, 0, 1), 0 0 30px rgba(255, 190, 0, 0.6); }
+}
+@keyframes hudCyanGlow {
+  0%, 100% { text-shadow: 0 0 7px rgba(80, 220, 255, 0.6); }
+  50%       { text-shadow: 0 0 14px rgba(100, 240, 255, 1), 0 0 24px rgba(80, 200, 255, 0.5); }
+}
+@keyframes hudRedGlow {
+  0%, 100% { text-shadow: 0 0 6px rgba(255, 80, 80, 0.5); }
+  50%       { text-shadow: 0 0 12px rgba(255, 100, 100, 1), 0 0 22px rgba(255, 60, 60, 0.5); }
+}
+@keyframes hudScoreIconBounce {
+  0%, 100% { transform: scale(1) rotate(-5deg); }
+  50%       { transform: scale(1.25) rotate(5deg); }
+}
+@keyframes hudScoreShimmer {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+@keyframes hudBorderPulse {
+  0%, 100% { border-color: rgba(80, 200, 60, 0.55); box-shadow: 0 6px 30px rgba(0,0,0,0.65), 0 0 0 1px rgba(80,200,60,0.1); }
+  50%       { border-color: rgba(100, 230, 80, 0.8);  box-shadow: 0 6px 36px rgba(0,0,0,0.75), 0 0 16px rgba(80,200,60,0.28); }
+}
+
+/* ── HUD principal ── */
 .game-hud {
   position: fixed;
   top: 20px;
   left: 20px;
-  background: rgba(6, 12, 6, 0.94);
+  background: rgba(5, 10, 5, 0.96);
   border: 2px solid rgba(80, 200, 60, 0.55);
-  border-radius: 14px;
-  padding: 14px 18px;
+  border-radius: 20px;
+  padding: 18px 22px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 6px;
   z-index: 5000;
   pointer-events: none;
-  backdrop-filter: blur(8px);
-  min-width: 200px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 0 0 1px rgba(80,200,60,0.1);
+  backdrop-filter: blur(14px);
+  min-width: 260px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.65), 0 0 0 1px rgba(80,200,60,0.1);
+  animation: hudBorderPulse 3s ease-in-out infinite;
 }
 
-/* Sección individual del HUD */
+/* ── Base de cada sección — mini-tarjeta ── */
 .hud-section {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: monospace;
-  font-size: 1rem;
-  padding: 4px 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+/* Cuerpo (label + valor) en columna */
+.hud-stat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
 }
 
 .hud-icon {
-  font-size: 1.15rem;
-  width: 24px;
+  font-size: 1.4rem;
+  width: 28px;
   text-align: center;
   flex-shrink: 0;
 }
 
 /* WCAG: contraste mínimo 4.5:1 */
 .hud-label {
-  color: #a8d090;
-  font-size: 0.8rem;
+  color: #9ac87e;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
-  flex: 1;
+  letter-spacing: 0.09em;
 }
 
 .hud-value {
   color: #e8ffcc;
   font-weight: 700;
-  font-size: 1.05rem;
-  min-width: 36px;
-  text-align: right;
+  font-size: 1.3rem;
+  line-height: 1.1;
 }
 
-/* Nivel — azul cian destacado */
-.hud-level .hud-value--level {
+/* ── NIVEL (cian) ── */
+.hud-level {
+  background: linear-gradient(135deg, rgba(0, 28, 48, 0.85), rgba(0, 55, 78, 0.55));
+  border-color: rgba(80, 200, 240, 0.35);
+}
+.hud-icon--level {
+  filter: drop-shadow(0 0 5px rgba(80, 210, 255, 0.65));
+  font-size: 1.5rem;
+}
+.hud-value--level {
   color: #7ef0ff;
-  font-size: 1.2rem;
+  font-size: 1.55rem;
+  animation: hudCyanGlow 3s ease-in-out infinite;
 }
-
 .hud-total {
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   color: #5ab8c8;
   font-weight: 400;
 }
 
-/* Puntos globales — dorado */
-.hud-global .hud-value--global {
-  color: #ffd700;
-  font-size: 1.1rem;
+/* ── SCORE del nivel (verde) — tarjeta destacada grande ── */
+.hud-score {
+  background: linear-gradient(135deg, rgba(0, 40, 10, 0.88), rgba(0, 72, 22, 0.62));
+  border-color: rgba(80, 220, 60, 0.48) !important;
+  padding: 10px 12px;
+  margin: 2px 0;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.hud-score::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(120, 255, 100, 0.08), transparent);
+  animation: hudScoreShimmer 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+.hud-score-icon {
+  font-size: 2rem !important;
+  width: 36px !important;
+  animation: hudScoreIconBounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(80, 255, 100, 0.75));
+}
+.hud-score-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+}
+.hud-score-body .hud-label { font-size: 0.7rem; }
+.hud-value--score {
+  color: #a8ffb0;
+  font-size: 2.7rem !important;
+  font-weight: 900 !important;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  animation: hudScoreGlow 2.5s ease-in-out infinite;
+  font-family: monospace;
 }
 
-/* Muertes — rojo legible */
+/* ── GLOBAL (dorado) ── */
+.hud-global {
+  background: linear-gradient(135deg, rgba(42, 28, 0, 0.85), rgba(75, 52, 0, 0.55));
+  border-color: rgba(220, 170, 0, 0.38);
+}
+.hud-icon--global {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 6px rgba(255, 200, 0, 0.7));
+}
+.hud-value--global {
+  color: #ffd700 !important;
+  font-size: 1.55rem !important;
+  animation: hudGoldGlow 3s ease-in-out infinite;
+}
+
+/* ── TIEMPO (azul-violeta) ── */
+.hud-time {
+  background: linear-gradient(135deg, rgba(10, 8, 40, 0.85), rgba(22, 10, 65, 0.55));
+  border-color: rgba(140, 100, 240, 0.35);
+}
+.hud-icon--time {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 5px rgba(160, 120, 255, 0.65));
+}
+.hud-value--time {
+  color: #c8aaff;
+  font-size: 1.3rem;
+}
+
+/* ── MUERTES (rojo) ── */
+.hud-deaths {
+  background: linear-gradient(135deg, rgba(42, 5, 5, 0.85), rgba(75, 10, 10, 0.55));
+  border-color: rgba(220, 60, 60, 0.35);
+}
+.hud-icon--deaths {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 5px rgba(255, 80, 80, 0.65));
+}
 .hud-value--deaths {
   color: #ff8080;
+  font-size: 1.55rem !important;
+  animation: hudRedGlow 3s ease-in-out infinite;
 }
 
-/* Separador */
+/* ── Separador ── */
 .hud-divider {
   height: 1px;
-  background: rgba(80, 200, 60, 0.3);
-  margin: 5px 0;
+  background: linear-gradient(90deg, transparent, rgba(80, 200, 60, 0.35), transparent);
+  margin: 2px 0;
 }
 
 /* ── Botón de salida ── */

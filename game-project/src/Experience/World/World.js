@@ -14,7 +14,6 @@ import BlockPrefab from './BlockPrefab.js'
 import FinalPrizeParticles from '../Utils/FinalPrizeParticles.js'
 import Enemy from './Enemy.js'
 
-
 const BACKEND = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001'
 
 async function gameAPI(path, body) {
@@ -49,17 +48,13 @@ export default class World {
         this.portalSound = new Sound('/sounds/portal.mp3')
         this.loseSound = new Sound('/sounds/lose.ogg')
 
-
         this.currentSpawnPoint = { x: -17, y: 1.5, z: -67 }
         this.allowPrizePickup = false
         this.hasMoved = false
 
-        setTimeout(() => {
-            this.allowPrizePickup = true
-        }, 2000)
+        setTimeout(() => { this.allowPrizePickup = true }, 2000)
 
         this.resources.on('ready', async () => {
-            // Iniciar sesión de juego en backend
             try {
                 const res = await fetch(`${BACKEND}/api/game/session/start`, {
                     method: 'POST',
@@ -71,11 +66,8 @@ export default class World {
                     const data = await res.json()
                     this.sessionId = data.sessionId
                 }
-            } catch (e) {
-                console.warn('[API] No se pudo registrar sesión:', e.message)
-            }
+            } catch (e) { console.warn('[API] No se pudo registrar sesión:', e.message) }
 
-            // Obtener puntos globales iniciales
             try {
                 const res = await fetch(`${BACKEND}/api/game/stats`, { credentials: 'include' })
                 if (res.ok) {
@@ -83,21 +75,18 @@ export default class World {
                     this.globalPoints = data.stats?.global_points || 0
                     window.dispatchEvent(new CustomEvent('hud-global-points', { detail: this.globalPoints }))
                 }
-            } catch (e) { /* sin conexión, ok */ }
+            } catch (e) {}
 
             this.floor = new Floor(this.experience)
             this.environment = new Environment(this.experience)
-
             this.loader = new ToyCarLoader(this.experience)
             await this.loader.loadFromAPI()
-
             this.fox = new Fox(this.experience)
             this.robot = new Robot(this.experience)
 
-            // Enemigos múltiples: plantilla y spawn lejos del jugador
-            const enemiesCountEnv = parseInt(import.meta.env.VITE_ENEMIES_COUNT || '3', 10)
-            const enemiesCount = Number.isFinite(enemiesCountEnv) && enemiesCountEnv > 0 ? enemiesCountEnv : 3
-            this.spawnEnemies(enemiesCount)
+            const nivel = this.levelManager?.currentLevel || 1
+            const zombiesPorNivel = { 1: 2, 2: 3, 3: 5, 4: 7, 5: 10 }
+            this.spawnEnemies(zombiesPorNivel[nivel] || 3)
 
             this.experience.vr.bindCharacter(this.robot)
             this.thirdPersonCamera = new ThirdPersonCamera(this.experience, this.robot.group)
@@ -110,85 +99,90 @@ export default class World {
             })
 
             if (!this.experience.physics || !this.experience.physics.world) {
-                console.error("🚫 Sistema de físicas no está inicializado al cargar el mundo.");
-                return;
+                console.error("🚫 Sistema de físicas no está inicializado al cargar el mundo.")
+                return
             }
 
-            // Si se está en modo VR, ocultar el robot
             this._checkVRMode()
-
-            this.experience.renderer.instance.xr.addEventListener('sessionstart', () => {
-                this._checkVRMode()
-            })
-
-
+            this.experience.renderer.instance.xr.addEventListener('sessionstart', () => { this._checkVRMode() })
         })
     }
 
     triggerDefeat() {
         if (this.defeatTriggered) return
         this.defeatTriggered = true
-
         this.robot?.die()
-
         window.dispatchEvent(new CustomEvent('hud-death'))
-        gameAPI('/death', {
-            level: this.levelManager.currentLevel,
-            sessionId: this.sessionId
-        })
+        gameAPI('/death', { level: this.levelManager.currentLevel, sessionId: this.sessionId })
+        if (window.userInteracted && this.loseSound) this.loseSound.play()
 
-        if (window.userInteracted && this.loseSound) {
-            this.loseSound.play()
+        const overlay = document.createElement('div')
+        overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;z-index:9999;'
+        overlay.innerHTML = `
+            <div style="background:linear-gradient(135deg,#1a0000,#2d0000,#1a0000);border:2px solid #ff2200;border-radius:16px;padding:40px 48px;text-align:center;max-width:420px;width:90%;box-shadow:0 0 40px #ff220066;">
+                <div style="font-size:72px;margin-bottom:16px;">☠️</div>
+                <h2 style="font-size:26px;font-weight:900;color:#ff4422;text-shadow:0 0 20px #ff2200;margin:0 0 8px;letter-spacing:2px;text-transform:uppercase;">¡Te atraparon!</h2>
+                <p style="color:rgba(255,255,255,0.75);font-size:15px;margin:0 0 28px;line-height:1.6;">Los zombies acabaron contigo.<br/>¿Tienes el valor de intentarlo otra vez?</p>
+                <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                    <button id="btn-retry-defeat" style="background:linear-gradient(135deg,#00cc44,#008833);color:white;border:none;border-radius:8px;padding:12px 28px;font-size:16px;font-weight:700;cursor:pointer;">🔁 Reintentar</button>
+                    <button id="btn-quit-defeat" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px 28px;font-size:16px;cursor:pointer;">❌ Salir</button>
+                </div>
+            </div>
+        `
+        document.body.appendChild(overlay)
+
+        document.getElementById('btn-retry-defeat').onclick = () => {
+            overlay.remove()
+            this.defeatTriggered = false
+            this.gameStarted = true
+            const spawn = this.levelManager.spawnPoints?.[this.levelManager.currentLevel] || { x: -17, y: 1.5, z: -67 }
+            this.robot?.reset?.()
+            this.resetRobotPosition(spawn)
+            const zombiesPorNivel = { 1: 2, 2: 3, 3: 5, 4: 7, 5: 10 }
+            const count = zombiesPorNivel[this.levelManager.currentLevel] || 3
+            this.spawnEnemies(count)
         }
-
-        this.experience.modal.show({
-            icon: '💀',
-            message: '¡El enemigo te atrapó!\n¿Quieres intentarlo otra vez?',
-            buttons: [
-                { text: '🔁 Reintentar', onClick: () => this.experience.resetGameToFirstLevel() },
-                { text: '❌ Salir', onClick: () => this.experience.resetGame() }
-            ]
-        })
+        document.getElementById('btn-quit-defeat').onclick = () => {
+            overlay.remove()
+            // ✅ Volver al login
+            window.location.reload()
+        }
     }
 
-    // Crear varios enemigos en posiciones alejadas del jugador para evitar atascos iniciales
     spawnEnemies(count = 3) {
         if (!this.robot?.body?.position) return
-
         const playerPos = this.robot.body.position
         console.log('[spawnEnemies] Posición del jugador:', playerPos.x.toFixed(1), playerPos.y.toFixed(1), playerPos.z.toFixed(1))
 
-        // Limpia anteriores si existen
         if (this.enemies?.length) {
             this.enemies.forEach(e => e?.destroy?.())
             this.enemies = []
         }
 
-        // Construir el template del modelo
         const zombieGlb = this.resources?.items?.zombieModel
         console.log('[spawnEnemies] zombieModel cargado:', !!zombieGlb, '| scene:', !!zombieGlb?.scene)
-
-        // Cada enemigo necesita su propio clone de esqueleto — se crea uno por enemigo
-        // (SkeletonUtils.clone se llama dentro del loop, no aquí)
         const useZombie = !!(zombieGlb?.scene)
 
-        const minRadius = 15
-        const maxRadius = 25
+        // ✅ Radio según nivel — nivel 4 interior más pequeño
+        const nivelActual = this.levelManager?.currentLevel || 1
+        const minRadius = nivelActual === 4 ? 8 : 25
+        const maxRadius = nivelActual === 4 ? 15 : 40
+
+        // ✅ Delay según nivel — nivel 4 tiene 5s para que cargue bien
+        const delaySegundos = nivelActual === 4 ? 5.0 : 3.0
 
         for (let i = 0; i < count; i++) {
             const angle = Math.random() * Math.PI * 2
             const radius = minRadius + Math.random() * (maxRadius - minRadius)
             const x = playerPos.x + Math.cos(angle) * radius
             const z = playerPos.z + Math.sin(angle) * radius
-            const y = playerPos.y + 0.5
+            const y = 1.5
 
             console.log(`[spawnEnemies] Enemigo ${i} spawn:`, x.toFixed(1), y.toFixed(1), z.toFixed(1))
 
-            // Clonar el esqueleto correctamente por cada enemigo
             let modelClone
             if (useZombie) {
                 modelClone = SkeletonUtils.clone(zombieGlb.scene)
-                // Escalar a ~1 unidad
                 const bbox = new THREE.Box3().setFromObject(modelClone)
                 if (!bbox.isEmpty()) {
                     const s = new THREE.Vector3()
@@ -220,26 +214,22 @@ export default class World {
                 zombieGlb: useZombie ? zombieGlb : null
             })
 
-            enemy.delayActivation = 0
+            enemy.delayActivation = delaySegundos
             this.enemies.push(enemy)
         }
 
         console.log('[spawnEnemies] Total enemigos creados:', this.enemies.length)
     }
 
-    toggleAudio() {
-        this.ambientSound.toggle()
-    }
+    toggleAudio() { this.ambientSound.toggle() }
 
     update(delta) {
         this.fox?.update()
         this.robot?.update()
         this.blockPrefab?.update()
 
-        // Siempre actualizar enemigos para sincronizar visual con físicas
         this.enemies?.forEach(e => e.update(delta, this.gameStarted))
 
-        // Detección de derrota solo cuando el juego está activo
         if (this.gameStarted) {
             const distToClosest = this.enemies?.reduce((min, e) => {
                 if (!e?.body?.position || !this.robot?.body?.position) return min
@@ -261,24 +251,20 @@ export default class World {
 
         if (!this.allowPrizePickup || !this.loader || !this.robot || !this.robot.body) return
 
-
         let pos = null
-
         if (this.experience.renderer.instance.xr.isPresenting) {
             pos = this.experience.camera.instance.position
         } else if (this.robot?.body?.position) {
             pos = this.robot.body.position
         } else {
-            return // No hay posición válida, salimos del update
+            return
         }
-
 
         const speed = this.robot?.body?.velocity?.length?.() || 0
         const moved = speed > 0.5
 
         this.loader.prizes.forEach((prize) => {
             if (!prize.pivot) return
-
             const dist = prize.pivot.position.distanceTo(pos)
             if (dist < 1.2 && moved && !prize.collected) {
                 prize.collect()
@@ -289,16 +275,11 @@ export default class World {
                     this.robot.points = this.points
                     window.dispatchEvent(new CustomEvent('hud-points', { detail: this.points }))
 
-                    // Actualizar puntos globales en backend y HUD
                     fetch(`${BACKEND}/api/game/coin`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         credentials: 'include',
-                        body: JSON.stringify({
-                            level: this.levelManager.currentLevel,
-                            coinName: prize.name || prize.role,
-                            sessionId: this.sessionId
-                        })
+                        body: JSON.stringify({ level: this.levelManager.currentLevel, coinName: prize.name || prize.role, sessionId: this.sessionId })
                     }).then(r => r.ok ? r.json() : null).then(data => {
                         if (data?.globalPoints !== undefined) {
                             this.globalPoints = data.globalPoints
@@ -315,20 +296,9 @@ export default class World {
                             finalCoin.pivot.visible = true
                             if (finalCoin.model) finalCoin.model.visible = true
                             this.finalPrizeActivated = true
-
-                            new FinalPrizeParticles({
-                                scene: this.scene,
-                                targetPosition: finalCoin.pivot.position,
-                                sourcePosition: this.robot.body.position,
-                                experience: this.experience
-                            })
-
+                            new FinalPrizeParticles({ scene: this.scene, targetPosition: finalCoin.pivot.position, sourcePosition: this.robot.body.position, experience: this.experience })
                             this._createFinalPrizeBeam(finalCoin.pivot.position)
-
-                            if (window.userInteracted) {
-                                this.portalSound.play()
-                            }
-
+                            if (window.userInteracted) this.portalSound.play()
                             console.log("🪙 Coin final activado correctamente.")
                         }
                     }
@@ -336,85 +306,63 @@ export default class World {
 
                 if (prize.role === "finalPrize") {
                     if (this.levelManager.currentLevel < this.levelManager.totalLevels) {
-                        gameAPI('/level-complete', {
-                            level: this.levelManager.currentLevel,
-                            sessionId: this.sessionId,
-                            coins: this.points
-                        })
+                        gameAPI('/level-complete', { level: this.levelManager.currentLevel, sessionId: this.sessionId, coins: this.points })
                         this.levelManager.nextLevel()
                         this.points = 0
                         this.robot.points = 0
                         window.dispatchEvent(new CustomEvent('hud-points', { detail: 0 }))
                         window.dispatchEvent(new CustomEvent('hud-level', { detail: this.levelManager.currentLevel }))
+                        setTimeout(() => {
+                            const zombiesPorNivel = { 1: 2, 2: 3, 3: 5, 4: 7, 5: 10 }
+                            const count = zombiesPorNivel[this.levelManager.currentLevel] || 3
+                            this.spawnEnemies(count)
+                        }, 1500)
                     } else {
                         const elapsed = this.experience.tracker.stop()
                         this.experience.tracker.saveTime(elapsed)
                         this.experience.tracker.showEndGameModal(elapsed)
-
                         this.experience.obstacleWavesDisabled = true
                         clearTimeout(this.experience.obstacleWaveTimeout)
                         this.experience.raycaster?.removeAllObstacles()
-
-                        if (window.userInteracted) {
-                            this.winner.play()
-                        }
+                        if (window.userInteracted) this.winner.play()
+                        // ✅ Detener zombies al ganar
+                        this.gameStarted = false
+                        this.enemies?.forEach(e => { if (e.body) { e.body.velocity.set(0,0,0) } })
                     }
                 }
-
-                if (this.experience.raycaster?.removeRandomObstacles) {
-                    const reduction = 0.2 + Math.random() * 0.1
-                    this.experience.raycaster.removeRandomObstacles(reduction)
-                }
-
-                if (window.userInteracted) {
-                    this.coinSound.play()
-                }
-
+                if (window.userInteracted) this.coinSound.play()
                 this.experience.menu.setStatus?.(`🎖️ Puntos: ${this.points}`)
             }
         })
 
-        // ✅ Verificar si todas las monedas se han recogido y aún no se activó el finalPrize
-        // ✅ Activar finalPrize si todas las monedas default fueron recolectadas (desde VR o PC)
         if (!this.finalPrizeActivated && this.loader?.prizes) {
             const totalDefault = this.loader.prizes.filter(p => p.role === 'default').length
             const collectedDefault = this.loader.prizes.filter(p => p.role === 'default' && p.collected).length
-
             if (totalDefault > 0 && collectedDefault === totalDefault) {
                 const finalCoin = this.loader.prizes.find(p => p.role === "finalPrize")
                 if (finalCoin && !finalCoin.collected && finalCoin.pivot) {
                     finalCoin.pivot.visible = true
                     if (finalCoin.model) finalCoin.model.visible = true
                     this.finalPrizeActivated = true
-
-                    new FinalPrizeParticles({
-                        scene: this.scene,
-                        targetPosition: finalCoin.pivot.position,
-                        sourcePosition: this.experience.vrDolly?.position ?? this.experience.camera.instance.position,
-                        experience: this.experience
-                    })
-
+                    new FinalPrizeParticles({ scene: this.scene, targetPosition: finalCoin.pivot.position, sourcePosition: this.experience.vrDolly?.position ?? this.experience.camera.instance.position, experience: this.experience })
                     this._createFinalPrizeBeam(finalCoin.pivot.position)
-
-                    if (window.userInteracted) {
-                        this.portalSound.play()
-                    }
-
-                    console.log("🪙 FinalPrize activado automáticamente desde VR.")
+                    if (window.userInteracted) this.portalSound.play()
                 }
             }
         }
 
+        // ✅ Animar portal rojo/naranja estilo zombie
+        const _t = Date.now() * 0.001
+        if (this._ring1) { this._ring1.rotation.z = _t * 1.0 }
+        if (this._ring2) { this._ring2.rotation.z = -_t * 1.6 }
+        if (this._ring3) { this._ring3.rotation.z = _t * 2.4 }
+        if (this._disc) { this._disc.material.opacity = 0.8 + Math.sin(_t*3)*0.2 }
+        if (this._particles) { this._particles.rotation.y = _t * 0.5 }
+        if (this._particles2) { this._particles2.rotation.y = -_t * 0.3 }
+        if (this._particles) { this._particles.rotation.y = _t * 0.25 }
+        if (this.finalPrizeBeam) { this.finalPrizeBeam.material.opacity = 0.1 + Math.sin(_t * 2) * 0.06 }
+        if (this.finalPrizeBeamLight) { this.finalPrizeBeamLight.intensity = 4 + Math.sin(_t * 3) * 2 }
 
-        // Pulsar rayo de la gema final
-        if (this.finalPrizeBeam) {
-            this.finalPrizeBeam.material.opacity = 0.18 + Math.sin(Date.now() * 0.002) * 0.08
-        }
-        if (this.finalPrizeBeamLight) {
-            this.finalPrizeBeamLight.intensity = 2 + Math.sin(Date.now() * 0.003) * 1
-        }
-
-        // Optimización física por distancia
         const playerPos = this.experience.renderer.instance.xr.isPresenting
             ? this.experience.camera.instance.position
             : this.robot?.body?.position
@@ -423,281 +371,227 @@ export default class World {
             if (obj.userData?.levelObject && obj.userData.physicsBody) {
                 const dist = obj.position.distanceTo(playerPos)
                 const shouldEnable = dist < 40 && obj.visible
-
                 const body = obj.userData.physicsBody
-                if (shouldEnable && !body.enabled) {
-                    body.enabled = true
-                } else if (!shouldEnable && body.enabled) {
-                    body.enabled = false
-                }
+                if (shouldEnable && !body.enabled) body.enabled = true
+                else if (!shouldEnable && body.enabled) body.enabled = false
             }
         })
     }
 
-
     async loadLevel(level) {
         try {
-            const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
-            const apiUrl = `${backendUrl}/api/blocks?level=${level}`;
-
-            let data;
+            const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001'
+            const apiUrl = `${backendUrl}/api/blocks?level=${level}`
+            let data
             try {
-                const res = await fetch(apiUrl);
-                if (!res.ok) throw new Error('Error desde API');
-                // Asegurar que la respuesta sea JSON
-                const ct = res.headers.get('content-type') || '';
-                if (!ct.includes('application/json')) {
-                    const preview = (await res.text()).slice(0, 120);
-                    throw new Error(`Respuesta no-JSON desde API (${apiUrl}): ${preview}`);
-                }
-                data = await res.json();
-                console.log(`📦 Datos del nivel ${level} cargados desde API`);
+                const res = await fetch(apiUrl)
+                if (!res.ok) throw new Error('Error desde API')
+                const ct = res.headers.get('content-type') || ''
+                if (!ct.includes('application/json')) throw new Error('No JSON')
+                data = await res.json()
             } catch (error) {
-                console.warn(`⚠️ No se pudo conectar con el backend. Usando datos locales para nivel ${level}...`);
-                const publicPath = (p) => {
-                    const base = import.meta.env.BASE_URL || '/';
-                    return `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
-                };
-
-                const localUrl = publicPath('data/toy_car_blocks.json');
-                const localRes = await fetch(localUrl);
-                if (!localRes.ok) {
-                    const preview = (await localRes.text()).slice(0, 120);
-                    throw new Error(`No se pudo cargar ${localUrl} (HTTP ${localRes.status}). Vista previa: ${preview}`);
-                }
-                const localCt = localRes.headers.get('content-type') || '';
-                if (!localCt.includes('application/json')) {
-                    const preview = (await localRes.text()).slice(0, 120);
-                    throw new Error(`Contenido no JSON en ${localUrl}. Vista previa: ${preview}`);
-                }
-                const allBlocks = await localRes.json();
-
-                const filteredBlocks = allBlocks.filter(b => b.level === level);
-
+                console.warn(`⚠️ Usando datos locales para nivel ${level}...`)
+                const publicPath = (p) => { const base = import.meta.env.BASE_URL || '/'; return `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}` }
+                const localRes = await fetch(publicPath('data/toy_car_blocks.json'))
+                if (!localRes.ok) throw new Error(`No se pudo cargar toy_car_blocks.json`)
+                const allBlocks = await localRes.json()
                 data = {
-                    blocks: filteredBlocks,
-                    spawnPoint: { x: -17, y: 1.5, z: -67 } // valor por defecto si no viene en JSON
-                };
+                    blocks: allBlocks.filter(b => b.level === level),
+                    spawnPoint: this.levelManager.spawnPoints[level] || { x: -17, y: 1.5, z: -67 }
+                }
             }
 
-            const spawnPoint = data.spawnPoint || { x: -17, y: 1.5, z: -67 };
-            this.currentSpawnPoint = spawnPoint;
-            this.points = 0;
-            this.robot.points = 0;
-            this.finalPrizeActivated = false;
-            window.dispatchEvent(new CustomEvent('hud-level', { detail: level }));
-            this.experience.menu.setStatus?.(`🎖️ Puntos: ${this.points}`);
+            const spawnPoint = data.spawnPoint || this.levelManager.spawnPoints[level] || { x: -17, y: 1.5, z: -67 }
+            this.currentSpawnPoint = spawnPoint
+            this.points = 0
+            this.robot.points = 0
+            this.finalPrizeActivated = false
+            window.dispatchEvent(new CustomEvent('hud-level', { detail: level }))
+            this.experience.menu.setStatus?.(`🎖️ Puntos: ${this.points}`)
 
             if (data.blocks) {
-                const publicPath = (p) => {
-                    const base = import.meta.env.BASE_URL || '/';
-                    return `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
-                };
-                const preciseUrl = publicPath('config/precisePhysicsModels.json');
-                const preciseRes = await fetch(preciseUrl);
-                if (!preciseRes.ok) {
-                    const preview = (await preciseRes.text()).slice(0, 120);
-                    throw new Error(`No se pudo cargar ${preciseUrl} (HTTP ${preciseRes.status}). Vista previa: ${preview}`);
-                }
-                const preciseCt = preciseRes.headers.get('content-type') || '';
-                if (!preciseCt.includes('application/json')) {
-                    const preview = (await preciseRes.text()).slice(0, 120);
-                    throw new Error(`Contenido no JSON en ${preciseUrl}. Vista previa: ${preview}`);
-                }
-                const preciseModels = await preciseRes.json();
-                this.loader._processBlocks(data.blocks, preciseModels);
+                const publicPath = (p) => { const base = import.meta.env.BASE_URL || '/'; return `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}` }
+                const preciseRes = await fetch(publicPath('config/precisePhysicsModels.json'))
+                if (!preciseRes.ok) throw new Error('No precisePhysicsModels')
+                const preciseModels = await preciseRes.json()
+                this.loader._processBlocks(data.blocks, preciseModels)
             } else {
-                await this.loader.loadFromURL(apiUrl);
+                await this.loader.loadFromURL(apiUrl)
             }
 
+            this.loader.billboards.create(level)
 
             this.loader.prizes.forEach(p => {
-                if (p.model) p.model.visible = (p.role !== 'finalPrize');
-                p.collected = false;
-            });
+                if (p.model) p.model.visible = (p.role !== 'finalPrize')
+                p.collected = false
+            })
 
-            this.totalDefaultCoins = this.loader.prizes.filter(p => p.role === "default").length;
-            console.log(`🎯 Total de monedas default para el nivel ${level}: ${this.totalDefaultCoins}`);
-
-            this.resetRobotPosition(spawnPoint);
-            console.log(`✅ Nivel ${level} cargado con spawn en`, spawnPoint);
+            this.totalDefaultCoins = this.loader.prizes.filter(p => p.role === "default").length
+            console.log(`🎯 Total de monedas default para el nivel ${level}: ${this.totalDefaultCoins}`)
+            this.resetRobotPosition(spawnPoint)
+            console.log(`✅ Nivel ${level} cargado con spawn en`, spawnPoint)
         } catch (error) {
-            console.error('❌ Error cargando nivel:', error);
+            console.error('❌ Error cargando nivel:', error)
         }
     }
 
     clearCurrentScene() {
-        if (!this.experience || !this.scene || !this.experience.physics || !this.experience.physics.world) {
-            console.warn('⚠️ No se puede limpiar: sistema de físicas no disponible.');
-            return;
+        if (!this.experience || !this.scene || !this.experience.physics?.world) {
+            console.warn('⚠️ No se puede limpiar: sistema de físicas no disponible.')
+            return
         }
 
-        let visualObjectsRemoved = 0;
-        let physicsBodiesRemoved = 0;
+        // Limpiar carteles primero (dispone texturas canvas)
+        this.loader?.billboards?.dispose()
 
-        const childrenToRemove = [];
-
-        this.scene.children.forEach((child) => {
-            if (child.userData && child.userData.levelObject) {
-                childrenToRemove.push(child);
-            }
-        });
-
+        const childrenToRemove = []
+        this.scene.children.forEach((child) => { if (child.userData?.levelObject) childrenToRemove.push(child) })
         childrenToRemove.forEach((child) => {
-            if (child.geometry) child.geometry.dispose();
-            if (child.material) {
-                if (Array.isArray(child.material)) {
-                    child.material.forEach(mat => mat.dispose());
-                } else {
-                    child.material.dispose();
-                }
-            }
+            child.geometry?.dispose()
+            if (child.material) { Array.isArray(child.material) ? child.material.forEach(m => m.dispose()) : child.material.dispose() }
+            this.scene.remove(child)
+            if (child.userData.physicsBody) this.experience.physics.world.removeBody(child.userData.physicsBody)
+        })
 
-            this.scene.remove(child);
-
-            if (child.userData.physicsBody) {
-                this.experience.physics.world.removeBody(child.userData.physicsBody);
-            }
-
-            visualObjectsRemoved++;
-        });
-
-        let physicsBodiesRemaining = -1;
-
-        if (this.experience.physics && this.experience.physics.world && Array.isArray(this.experience.physics.bodies)) {
-            const survivingBodies = [];
-            let bodiesBefore = this.experience.physics.bodies.length;
-
+        if (Array.isArray(this.experience.physics.bodies)) {
+            const surviving = []
             this.experience.physics.bodies.forEach((body) => {
-                if (body.userData && body.userData.levelObject) {
-                    this.experience.physics.world.removeBody(body);
-                    physicsBodiesRemoved++;
-                } else {
-                    survivingBodies.push(body);
-                }
-            });
-
-            this.experience.physics.bodies = survivingBodies;
-
-            console.log(`🧹 Physics Cleanup Report:`);
-            console.log(`✅ Cuerpos físicos eliminados: ${physicsBodiesRemoved}`);
-            console.log(`🎯 Cuerpos físicos sobrevivientes: ${survivingBodies.length}`);
-            console.log(`📦 Estado inicial: ${bodiesBefore} cuerpos → Estado final: ${survivingBodies.length} cuerpos`);
-        } else {
-            console.warn('⚠️ Physics system no disponible o sin cuerpos activos, omitiendo limpieza física.');
+                if (body.userData?.levelObject) { this.experience.physics.world.removeBody(body) }
+                else { surviving.push(body) }
+            })
+            this.experience.physics.bodies = surviving
         }
 
-        console.log(`🧹 Escena limpiada antes de cargar el nuevo nivel.`);
-        console.log(`✅ Objetos 3D eliminados: ${visualObjectsRemoved}`);
-        console.log(`✅ Cuerpos físicos eliminados: ${physicsBodiesRemoved}`);
-        console.log(`🎯 Objetos 3D actuales en escena: ${this.scene.children.length}`);
-
-        if (physicsBodiesRemaining !== -1) {
-            console.log(`🎯 Cuerpos físicos actuales en Physics World: ${physicsBodiesRemaining}`);
-        }
-
-        if (this.loader && this.loader.prizes.length > 0) {
+        if (this.loader?.prizes?.length) {
             this.loader.prizes.forEach(prize => {
-                // El pivot es el objeto que se agrega directamente a la escena
                 if (prize.pivot) {
                     prize.pivot.traverse(child => {
-                        if (child.geometry) child.geometry.dispose()
-                        if (child.material) {
-                            if (Array.isArray(child.material)) child.material.forEach(m => m.dispose())
-                            else child.material.dispose()
-                        }
+                        child.geometry?.dispose()
+                        if (child.material) { Array.isArray(child.material) ? child.material.forEach(m => m.dispose()) : child.material.dispose() }
                     })
                     this.scene.remove(prize.pivot)
                 }
-            });
-            this.loader.prizes = [];
-            console.log('🎯 Premios del nivel anterior eliminados correctamente.');
+            })
+            this.loader.prizes = []
         }
 
         this.finalPrizeActivated = false
 
-
-        if (this.finalPrizeBeam) {
-            this.finalPrizeBeam.geometry.dispose()
-            this.finalPrizeBeam.material.dispose()
-            this.scene.remove(this.finalPrizeBeam)
-            this.finalPrizeBeam = null
-        }
-        if (this.finalPrizeBeamLight) {
-            this.scene.remove(this.finalPrizeBeamLight)
-            this.finalPrizeBeamLight = null
-        }
-
+        if (this._portalGroup) { this.scene.remove(this._portalGroup); this._portalGroup = null; this._ring1 = null; this._ring2 = null; this._ring3 = null; this._particles = null; this._particles2 = null; this._disc = null }
+        if (this.finalPrizeBeam) { this.finalPrizeBeam.geometry.dispose(); this.finalPrizeBeam.material.dispose(); this.scene.remove(this.finalPrizeBeam); this.finalPrizeBeam = null }
+        if (this.finalPrizeBeamLight) { this.scene.remove(this.finalPrizeBeamLight); this.finalPrizeBeamLight = null }
     }
 
     resetRobotPosition(spawn = { x: -17, y: 1.5, z: -67 }) {
         if (!this.robot?.body || !this.robot?.group) return
-
         this.robot.body.position.set(spawn.x, spawn.y, spawn.z)
         this.robot.body.velocity.set(0, 0, 0)
         this.robot.body.angularVelocity.set(0, 0, 0)
         this.robot.body.quaternion.setFromEuler(0, 0, 0)
-
         this.robot.group.position.set(spawn.x, spawn.y, spawn.z)
         this.robot.group.rotation.set(0, 0, 0)
     }
 
     async _processLocalBlocks(blocks) {
-        const preciseRes = await fetch('/config/precisePhysicsModels.json');
-        const preciseModels = await preciseRes.json();
-        this.loader._processBlocks(blocks, preciseModels);
-
-        this.loader.prizes.forEach(p => {
-            if (p.model) p.model.visible = (p.role !== 'finalPrize');
-            p.collected = false;
-        });
-
-        this.totalDefaultCoins = this.loader.prizes.filter(p => p.role === "default").length;
-        console.log(`🎯 Total de monedas default para el nivel local: ${this.totalDefaultCoins}`);
+        const preciseRes = await fetch('/config/precisePhysicsModels.json')
+        const preciseModels = await preciseRes.json()
+        this.loader._processBlocks(blocks, preciseModels)
+        this.loader.prizes.forEach(p => { if (p.model) p.model.visible = (p.role !== 'finalPrize'); p.collected = false })
+        this.totalDefaultCoins = this.loader.prizes.filter(p => p.role === "default").length
     }
 
     _createFinalPrizeBeam(position) {
-        // Rayo vertical verde sobre la gema final
-        const beamGeo = new THREE.CylinderGeometry(0.05, 0.6, 30, 6, 1, true)
-        const beamMat = new THREE.MeshBasicMaterial({
-            color: 0x00ff88,
-            transparent: true,
-            opacity: 0.2,
-            side: THREE.DoubleSide,
-            depthWrite: false,
-            blending: THREE.AdditiveBlending
-        })
-        this.finalPrizeBeam = new THREE.Mesh(beamGeo, beamMat)
-        this.finalPrizeBeam.position.set(position.x, position.y + 15, position.z)
-        this.scene.add(this.finalPrizeBeam)
+        // ✅ Portal verde — esfera + anillos giratorios + partículas
+        this._portalGroup = new THREE.Group()
+        this._portalGroup.position.set(position.x, position.y + 0.3, position.z)
+        this.scene.add(this._portalGroup)
 
-        this.finalPrizeBeamLight = new THREE.PointLight(0x00ff88, 3, 18)
-        this.finalPrizeBeamLight.position.set(position.x, position.y + 1, position.z)
+        // Esfera central verde brillante
+        this._disc = new THREE.Mesh(
+            new THREE.SphereGeometry(0.9, 32, 32),
+            new THREE.MeshBasicMaterial({ color: 0x00cc44, transparent: true, opacity: 0.85, depthWrite: false, blending: THREE.AdditiveBlending })
+        )
+        this._portalGroup.add(this._disc)
+
+        // Anillo exterior verde
+        this._ring1 = new THREE.Mesh(
+            new THREE.TorusGeometry(1.3, 0.07, 8, 48),
+            new THREE.MeshBasicMaterial({ color: 0x00ff55, transparent: true, opacity: 0.9, depthWrite: false, blending: THREE.AdditiveBlending })
+        )
+        this._portalGroup.add(this._ring1)
+
+        // Anillo medio
+        this._ring2 = new THREE.Mesh(
+            new THREE.TorusGeometry(0.95, 0.05, 8, 48),
+            new THREE.MeshBasicMaterial({ color: 0x88ffcc, transparent: true, opacity: 0.8, depthWrite: false, blending: THREE.AdditiveBlending })
+        )
+        this._portalGroup.add(this._ring2)
+
+        // Anillo interior
+        this._ring3 = new THREE.Mesh(
+            new THREE.TorusGeometry(0.5, 0.04, 8, 48),
+            new THREE.MeshBasicMaterial({ color: 0xaaffdd, transparent: true, opacity: 0.7, depthWrite: false, blending: THREE.AdditiveBlending })
+        )
+        this._portalGroup.add(this._ring3)
+
+        // Partículas en espiral
+        const pCount = 120
+        const pGeo = new THREE.BufferGeometry()
+        const pPos = new Float32Array(pCount * 3)
+        for (let i = 0; i < pCount; i++) {
+            const t = i / pCount
+            const a = t * Math.PI * 8
+            const r = 0.1 + t * 1.2
+            pPos[i*3]   = Math.cos(a) * r
+            pPos[i*3+1] = (t - 0.5) * 2.5
+            pPos[i*3+2] = Math.sin(a) * r
+        }
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3))
+        this._particles = new THREE.Points(pGeo, new THREE.PointsMaterial({
+            color: 0x00ff88, size: 0.07, transparent: true, opacity: 0.85,
+            depthWrite: false, blending: THREE.AdditiveBlending
+        }))
+        this._portalGroup.add(this._particles)
+
+        // Partículas flotantes extras
+        const p2Geo = new THREE.BufferGeometry()
+        const p2Pos = new Float32Array(50 * 3)
+        for (let i = 0; i < 50; i++) {
+            const a = Math.random() * Math.PI * 2
+            const r = 0.3 + Math.random() * 1.4
+            p2Pos[i*3]   = Math.cos(a) * r
+            p2Pos[i*3+1] = (Math.random()-0.5) * 2.5
+            p2Pos[i*3+2] = Math.sin(a) * r
+        }
+        p2Geo.setAttribute('position', new THREE.BufferAttribute(p2Pos, 3))
+        this._particles2 = new THREE.Points(p2Geo, new THREE.PointsMaterial({
+            color: 0xaaffcc, size: 0.06, transparent: true, opacity: 0.7,
+            depthWrite: false, blending: THREE.AdditiveBlending
+        }))
+        this._portalGroup.add(this._particles2)
+
+        // Luz verde pulsante
+        this.finalPrizeBeamLight = new THREE.PointLight(0x00ff44, 6, 14)
+        this.finalPrizeBeamLight.position.set(position.x, position.y+1.5, position.z)
         this.scene.add(this.finalPrizeBeamLight)
-    }
 
+        // Rayo vertical
+        this.finalPrizeBeam = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.02, 0.4, 22, 6, 1, true),
+            new THREE.MeshBasicMaterial({ color: 0x00ff44, transparent: true, opacity: 0.12, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending })
+        )
+        this.finalPrizeBeam.position.set(position.x, position.y+12, position.z)
+        this.scene.add(this.finalPrizeBeam)
+    }
     _checkVRMode() {
         const isVR = this.experience.renderer.instance.xr.isPresenting
-
         if (isVR) {
-            if (this.robot?.group) {
-                this.robot.group.visible = false
-            }
-
-            // 🔁 Delay de 3s para que no ataque de inmediato en VR
-            if (this.enemy) {
-                this.enemy.delayActivation = 10.0
-            }
-
-            // 🧠 Posicionar cámara correctamente
+            if (this.robot?.group) this.robot.group.visible = false
+            if (this.enemy) this.enemy.delayActivation = 10.0
             this.experience.camera.instance.position.set(5, 1.6, 5)
             this.experience.camera.instance.lookAt(new THREE.Vector3(5, 1.6, 4))
         } else {
-            if (this.robot?.group) {
-                this.robot.group.visible = true
-            }
+            if (this.robot?.group) this.robot.group.visible = true
         }
     }
-
-
 }

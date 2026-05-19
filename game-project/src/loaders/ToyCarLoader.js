@@ -2,6 +2,7 @@ import * as CANNON from 'cannon-es';
 import * as THREE from 'three';
 import { createBoxShapeFromModel, createTrimeshShapeFromModel } from '../Experience/Utils/PhysicsShapeFactory.js';
 import Prize from '../Experience/World/Prize.js';
+import BillboardSystem from '../Experience/World/BillboardSystem.js';
 
 export default class ToyCarLoader {
     constructor(experience) {
@@ -10,6 +11,7 @@ export default class ToyCarLoader {
         this.resources = this.experience.resources;
         this.physics = this.experience.physics;
         this.prizes = [];
+        this.billboards = new BillboardSystem(this.scene);
     }
 
     _applyTextureToMeshes(root, imagePath, matcher, options = {}) {
@@ -129,6 +131,7 @@ export default class ToyCarLoader {
             }
 
             this._processBlocks(blocks, precisePhysicsModels);
+            this.billboards.create(1);
         } catch (err) {
             console.error('Error al cargar bloques o lista Trimesh:', err);
         }

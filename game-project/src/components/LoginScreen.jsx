@@ -215,6 +215,17 @@ export default function LoginScreen({ onLogin }) {
                 </div>
             </div>
 
+            <div className="login-guest-section">
+                <div className="login-guest-divider"><span>o</span></div>
+                <button
+                    className="login-guest-btn"
+                    onClick={() => onLogin({ username: 'Invitado', guest: true })}
+                >
+                    🎮 Jugar sin cuenta
+                </button>
+                <p className="login-guest-hint">Sin registro · Sin backend · El progreso no se guarda</p>
+            </div>
+
             <p className="login-footer">
                 Los zombies no esperan — ¿estás listo para sobrevivir?
             </p>

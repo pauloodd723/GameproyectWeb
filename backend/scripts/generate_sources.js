@@ -1,10 +1,8 @@
-// scripts/generate_sources.js
-
 const fs = require('fs');
 const path = require('path');
 
-const modelsPath = path.join('C:/Users/Paulo Tibanta Delgad/Desktop/ProyectoGame+Web/Blender_Threejs_Mongo/game-project/public/models/toycar');
-const outputPath = path.join(__dirname, '../data/sources_1.js');
+const modelsPath = path.join('C:/Users/Cristian/GameproyectWeb/game-project/public/models/toycar4');
+const outputPath = path.join(__dirname, '../data/sources_4.js');
 
 if (!fs.existsSync(modelsPath)) {
     console.error('❌ El directorio no existe:', modelsPath);
@@ -20,13 +18,13 @@ files.forEach(file => {
         sources.push({
             name,
             type: 'gltfModel',
-            path: `/models/toycar/${file}`
+            path: `/models/toycar4/${file}`
         });
     }
 });
 
-const output = `export const sources = ${JSON.stringify(sources, null, 4)};\n`;
+const output = `export const sources_4 = ${JSON.stringify(sources, null, 4)};\n`;
 
 fs.writeFileSync(outputPath, output, 'utf-8');
 
-console.log('✅ Archivo sources.js generado con éxito en:', outputPath);
+console.log('✅ Archivo sources_4.js generado con éxito en:', outputPath);
